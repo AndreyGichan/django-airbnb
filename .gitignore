@@ -38,3 +38,4 @@ next-env.d.ts
 venv/
 */venv/
 
+backend/create_superuser.py
