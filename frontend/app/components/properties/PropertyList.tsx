@@ -92,7 +92,6 @@ const PropertyList: React.FC<PropertyListProps> = ({
             }
 
             if (urlQuery.length) {
-                console.log('Query:', urlQuery);
 
                 urlQuery = '?' + urlQuery.substring(1);
 
