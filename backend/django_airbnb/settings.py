@@ -33,10 +33,7 @@ AUTH_USER_MODEL = 'useraccount.User'
 
 SITE_ID = 1
 
-if DEBUG:
-    WEBSITE_URL = 'https://localhost:8000'
-else:
-    WEBSITE_URL = 'https://django-airbnb.onrender.com'
+WEBSITE_URL = 'https://django-airbnb.onrender.com'
 
 CHANNEL_LAYERS = {
     'default': {
