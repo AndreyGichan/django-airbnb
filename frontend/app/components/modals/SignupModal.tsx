@@ -31,7 +31,7 @@ const SignupModal = () => {
             handleLogin(response.user.pk, response.access, response.refresh)
 
             signupModal.close();
-            router.push('/')
+            router.refresh()
         } else {
             const tmpErrors: string[] = Object.values(response).map((error: any) =>{
                 return error;
