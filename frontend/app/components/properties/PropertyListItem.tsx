@@ -28,12 +28,6 @@ const PropertyListItem: React.FC<PropertyProps> = ({
                     sizes="(max-width: 768px) 768px, (max-width:1200px): 768px, 768px"
                     className="hover:scale-110 object-cover transition h-full w-full"
                     alt="Beach house"
-                    onLoadingComplete={(img) => {
-                        console.log("Image loaded:", img);
-                    }}
-                    onError={(e) => {
-                        console.error("Image failed to load:", e);
-                    }}
                 />
                 {markFavorite && (
                     <FavoriteButton

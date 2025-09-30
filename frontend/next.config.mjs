@@ -10,7 +10,7 @@ const nextConfig = {
             },
             {
                 protocol: 'https',
-                hostname: 'django-airbnb-xpb0.onrender.com',
+                hostname: 'django-airbnb.onrender.com',
                 pathname: '/media/**',
             },
         ]
