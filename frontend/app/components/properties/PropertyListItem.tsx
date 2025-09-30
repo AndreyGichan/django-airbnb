@@ -13,7 +13,6 @@ const PropertyListItem: React.FC<PropertyProps> = ({
     markFavorite
 }) => {
     const router = useRouter();
-    console.log("Image URL:", property.image_url);
 
 
     return (
