@@ -11,7 +11,6 @@ const nextConfig = {
             {
                 protocol: 'https',
                 hostname: 'django-airbnb-xpb0.onrender.com',
-                port: '',          
                 pathname: '/media/**',
             },
         ]
