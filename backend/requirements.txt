@@ -12,3 +12,4 @@ gunicorn==23.0.0
 dj-database-url==1.2.0
 whitenoise==6.10.0
 django-storages[google]==1.14.6
+boto3==1.40.43
