@@ -130,7 +130,7 @@ STORAGES = {
     "default": {
         "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
         "OPTIONS": {
-            "access_key": os.environ.get("SUPABASE_ACCESS_KEY"),
+            "access_key": os.environ.get("SUPABASE_SERVICE_ROLE_KEY"),
             "secret_key": os.environ.get("SUPABASE_SERVICE_ROLE_KEY"),
             "bucket_name": os.environ.get("SUPABASE_BUCKET_NAME"),
             "region_name": "us-east-1",  
