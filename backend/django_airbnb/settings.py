@@ -159,7 +159,7 @@ DATABASES = {
         'HOST': os.environ.get("SQL_HOST"),
         'PORT': os.environ.get("SQL_PORT"),
         'OPTIONS': {
-            'sslmode': 'disable', 
+            'sslmode': 'require', 
         },
     }
 }
