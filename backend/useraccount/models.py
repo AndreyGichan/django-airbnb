@@ -33,7 +33,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     email = models.EmailField(unique=True)
     name = models.CharField(max_length=255, blank=True, null=True)
-    avatar = models.ImageField(upload_to='uploads/avatars')
+    # avatar = models.ImageField(upload_to='uploads/avatars')
+    avatar_url = models.URLField(max_length=500, blank=True, null=True)
 
     is_active = models.BooleanField(default=True)
     is_superuser = models.BooleanField(default=False)
@@ -49,8 +50,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     EMAIL_FIELD = 'email'
     REQUIRED_FIELDS = ['name',]
 
-    def avatar_url(self):
-        if self.avatar:
-            return f'{settings.WEBSITE_URL}{self.avatar.url}'
-        else:
-            return ''
+    # def avatar_url(self):
+    #     if self.avatar:
+    #         return f'{settings.WEBSITE_URL}{self.avatar.url}'
+    #     else:
+    #         return ''
