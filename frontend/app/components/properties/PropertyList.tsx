@@ -107,6 +107,7 @@ const PropertyList: React.FC<PropertyListProps> = ({
             } else {
                 property.is_favorite = false
             }
+            console.log("Property image URL:", property.image_url);
 
             return property;
         }));
