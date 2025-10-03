@@ -1,13 +1,22 @@
 from django.contrib import admin
+from django import forms
 
 from .models import Property, Reservation
 from .supabase_utils import upload_image_to_supabase
 
+
+class PropertyAdminForm(forms.ModelForm):
+    image_file = forms.ImageField(required=False)
+
+    class Meta:
+        model = Property
+        fields = (
+            "title", "description", "price_per_night", "bedrooms", "bathrooms",
+            "guests", "country", "country_code", "category", "landlord"
+        )
+
 class PropertyAdmin(admin.ModelAdmin):
-    fields = (
-        "title", "description", "price_per_night", "bedrooms", "bathrooms",
-        "guests", "country", "country_code", "category", "landlord", "image_file"
-    )
+    form = PropertyAdminForm
     readonly_fields = ("image_url",)
 
     def save_model(self, request, obj, form, change):
