@@ -111,34 +111,7 @@ INSTALLED_APPS = [
     'chat',
     'property',
     'useraccount',
-    'storages',
 ]
-
-# DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-
-# AWS_ACCESS_KEY_ID = os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
-# AWS_SECRET_ACCESS_KEY = ""
-# AWS_STORAGE_BUCKET_NAME = os.environ.get("SUPABASE_BUCKET_NAME")
-# AWS_S3_ENDPOINT_URL = "https://rzjfusywfooxdatlzbgj.supabase.co/storage/v1"
-# AWS_QUERYSTRING_AUTH = False 
-
-STORAGES = {
-    "staticfiles": {
-        # "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-    "default": {
-        "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
-        "OPTIONS": {
-            "access_key": os.environ.get("SUPABASE_ACCESS_KEY"),
-            "secret_key": os.environ.get("SUPABASE_SERVICE_ROLE_KEY"),
-            "bucket_name": os.environ.get("SUPABASE_BUCKET_NAME"),
-            "region_name": "eu-west-1",
-            "endpoint_url": "https://rzjfusywfooxdatlzbgj.storage.supabase.co/storage/v1/s3",
-        },
-    },
-}
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -151,7 +124,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = 'django_airbnb.urls'
 

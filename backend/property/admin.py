@@ -1,6 +1,22 @@
 from django.contrib import admin
 
 from .models import Property, Reservation
+from .supabase_utils import upload_image_to_supabase
 
-admin.site.register(Property)
+class PropertyAdmin(admin.ModelAdmin):
+    fields = (
+        "title", "description", "price_per_night", "bedrooms", "bathrooms",
+        "guests", "country", "country_code", "category", "landlord", "image_file"
+    )
+    readonly_fields = ("image_url",)
+
+    def save_model(self, request, obj, form, change):
+        image_file = request.FILES.get("image_file")
+        if image_file:
+            public_url = upload_image_to_supabase(image_file, image_file.name)
+            obj.image_url = public_url
+        super().save_model(request, obj, form, change)
+
+
+admin.site.register(Property, PropertyAdmin)
 admin.site.register(Reservation)
