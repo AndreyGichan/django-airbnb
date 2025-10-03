@@ -1,8 +1,9 @@
-from django.forms import ModelForm
+from django import forms
 
 from .models import Property
 
-class PropertyForm(ModelForm):
+class PropertyForm(forms.ModelForm):
+    image_file = forms.FileField(required=False)
     class Meta:
         model = Property
         fields = (
@@ -14,6 +15,5 @@ class PropertyForm(ModelForm):
             'guests',
             'country',
             'country_code',
-            'category',
-            'image'
+            'category'
         )

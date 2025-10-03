@@ -18,12 +18,13 @@ class Property(models.Model):
     country_code = models.CharField(max_length=10)
     category = models.CharField(max_length=255)
     favorited = models.ManyToManyField(User, related_name='favorites', blank=True)
-    image = models.ImageField(upload_to='uploads/properties')
+    # image = models.ImageField(upload_to='uploads/properties')
+    image_url = models.URLField(max_length=500, blank=True, null=True)
     landlord = models.ForeignKey(User, related_name='properties', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
-    def image_url(self):
-        return f'{settings.WEBSITE_URL}{self.image.url}'
+    # def image_url(self):
+    #     return f'{settings.WEBSITE_URL}{self.image.url}'
 
 
 class Reservation(models.Model):
