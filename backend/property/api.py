@@ -153,11 +153,11 @@ def book_property(request, pk):
             created_by=request.user,
         )
 
-        return JsonResponse({"succes": True})
+        return JsonResponse({"success": True})
     except Exception as e:
         print("Error", e)
 
-        return JsonResponse({"succes": False})
+        return JsonResponse({"success": False})
 
 
 @api_view(["POST"])
