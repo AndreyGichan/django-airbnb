@@ -15,7 +15,6 @@ from .serializers import (
     ReservationsListSerializer,
 )
 from useraccount.models import User
-from .supabase_utils import upload_image_to_supabase
 
 
 @api_view(["GET"])
@@ -119,11 +118,6 @@ def create_property(request):
     if form.is_valid():
         property = form.save(commit=False)
         property.landlord = request.user
-
-        image_file = request.FILES.get("image_file")
-        if image_file:
-            property.image_url = upload_image_to_supabase(image_file, image_file.name)
-
         property.save()
 
         return JsonResponse({"success": True})
