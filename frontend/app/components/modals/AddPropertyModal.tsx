@@ -62,7 +62,7 @@ const AddPropertyModal = () => {
             formData.append('guests', dataGuests);
             formData.append('country', dataCountry.label);
             formData.append('country_code', dataCountry.value);
-            formData.append('image', dataImage);
+            formData.append('image_file', dataImage);
 
             const response = await apiService.post('/api/properties/create/', formData)
 

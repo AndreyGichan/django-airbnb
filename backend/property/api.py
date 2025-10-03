@@ -112,7 +112,7 @@ def property_reservations(request, pk):
     return JsonResponse(serializer.data, safe=False)
 
 
-@api_view(["POST"])
+@api_view(["POST", "FILES"])
 def create_property(request):
     form = PropertyForm(request.POST, request.FILES)
 
